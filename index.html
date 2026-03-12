@@ -270,36 +270,15 @@ body {
 }
 
 /* PRICING */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-}
 .pricing-card {
+  max-width: 500px;
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--gold);
   border-radius: 16px;
   padding: 2.5rem 2rem;
   position: relative;
-  transition: border-color 0.3s, transform 0.3s;
-}
-.pricing-card:hover { transform: translateY(-4px); }
-.pricing-card.featured {
-  border-color: var(--gold);
   background: linear-gradient(180deg, rgba(212,168,83,0.06) 0%, var(--bg-card) 40%);
-}
-.pricing-card.featured::before {
-  content: 'RECOMENDADA';
-  position: absolute;
-  top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--gold);
-  color: #000;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  padding: 0.35rem 1.2rem;
-  border-radius: 100px;
+  margin-top: 2.5rem;
 }
 .pricing-card .card-label {
   font-size: 0.75rem;
@@ -345,7 +324,6 @@ body {
   flex-shrink: 0;
   margin-top: 2px;
 }
-.pricing-card .features li .dim { color: var(--text-muted); }
 .pricing-card .card-tag {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -365,6 +343,84 @@ body {
   color: var(--text-secondary);
 }
 .pricing-card .timeline .icon { font-size: 1.1rem; }
+
+/* PAYMENT */
+.payment-box {
+  margin-top: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.payment-box h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--gold);
+}
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.payment-item {
+  padding: 1.25rem;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  text-align: center;
+}
+.payment-item .amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.payment-item .label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.payment-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* FUTURE */
+.future-box {
+  margin-top: 2.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  opacity: 0.85;
+}
+.future-box h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+.future-box p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.future-list {
+  list-style: none;
+  margin-top: 0.75rem;
+}
+.future-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.future-list li .dot {
+  color: var(--gold);
+  flex-shrink: 0;
+}
 
 /* MAINTENANCE */
 .maintenance-box {
@@ -527,12 +583,12 @@ footer a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
   .hero { min-height: 70vh; padding: 3rem 1.5rem; }
   .section { padding: 3.5rem 1.5rem; }
-  .pricing-grid { grid-template-columns: 1fr; }
   .pricing-card { padding: 2rem 1.5rem; }
   .maintenance-box { padding: 1.5rem; }
   .roi-box { padding: 1.5rem; }
   .roi-grid { grid-template-columns: 1fr 1fr; }
   .hero-meta { gap: 1.5rem; }
+  .payment-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -558,9 +614,9 @@ footer a:hover { text-decoration: underline; }
   <section class="hero">
     <div class="hero-inner fade-in">
       <span class="hero-badge">Propuesta Comercial</span>
-      <h1>Automatizacion inteligente para <span class="gold">Powernode</span></h1>
+      <h1>Automatizaci&oacute;n inteligente para <span class="gold">Powernode</span></h1>
       <p class="subtitle">
-        Un agente de IA que atiende, califica y agenda tus leads por WhatsApp, 24/7, sin intervenci&oacute;n humana.
+        Un agente de IA que atiende, califica y agenda tus leads por WhatsApp, 24/7, sin intervenci&oacute;n humana. Completamente done-for-you.
       </p>
       <div class="hero-meta">
         <div class="hero-meta-item">
@@ -569,11 +625,11 @@ footer a:hover { text-decoration: underline; }
         </div>
         <div class="hero-meta-item">
           <div class="label">Fecha</div>
-          <div class="value">Marzo 2026</div>
+          <div class="value">12 de marzo de 2026</div>
         </div>
         <div class="hero-meta-item">
-          <div class="label">Preparado por</div>
-          <div class="value">Imperio Digital</div>
+          <div class="label">Ref</div>
+          <div class="value">ID-2026-PW-001</div>
         </div>
       </div>
     </div>
@@ -584,12 +640,12 @@ footer a:hover { text-decoration: underline; }
   <!-- CONTEXTO -->
   <section class="section fade-in">
     <span class="section-label">01 / Contexto</span>
-    <h2>Entendemos tu operacion</h2>
+    <h2>Entendemos tu operaci&oacute;n</h2>
     <p>
       Powernode genera leads de forma constante a trav&eacute;s de pauta en Facebook. Esos leads llegan por WhatsApp y hoy son atendidos manualmente, uno por uno, por el equipo comercial.
     </p>
     <p>
-      Con ~50 conversaciones por semana, el volumen ya es significativo. Cada minuto que un lead espera sin respuesta es un cliente potencial que se enfr&iacute;a o se va con la competencia.
+      Con aproximadamente 50 conversaciones por semana, el volumen ya es significativo. Cada minuto que un lead espera sin respuesta es un cliente potencial que se enfr&iacute;a o se va con la competencia.
     </p>
     <p>
       El flujo actual funciona, pero no escala. Y lo m&aacute;s importante: depende 100% de personas disponibles en el momento justo.
@@ -600,7 +656,7 @@ footer a:hover { text-decoration: underline; }
 
   <!-- DIAGNÓSTICO -->
   <section class="section fade-in">
-    <span class="section-label">02 / Diagnostico</span>
+    <span class="section-label">02 / Diagn&oacute;stico</span>
     <h2>Los cuellos de botella que identificamos</h2>
     <div class="diagnostic-grid">
       <div class="diagnostic-card">
@@ -610,13 +666,13 @@ footer a:hover { text-decoration: underline; }
       </div>
       <div class="diagnostic-card">
         <div class="icon">&#128221;</div>
-        <h3>Calificacion manual</h3>
-        <p>Cada conversaci&oacute;n requiere las mismas preguntas: tipo de producto, c&oacute;digo postal, datos del cliente. Es repetitivo y consume tiempo valioso.</p>
+        <h3>Calificaci&oacute;n manual</h3>
+        <p>Cada conversaci&oacute;n requiere las mismas preguntas repetitivas: tipo de producto, c&oacute;digo postal, datos del cliente. Consume tiempo valioso del equipo.</p>
       </div>
       <div class="diagnostic-card">
         <div class="icon">&#128197;</div>
         <h3>Agendamiento fragmentado</h3>
-        <p>Coordinar inspecciones a domicilio, pasar datos a la flotilla y mantener el calendario actualizado se hace a mano, con riesgo de errores.</p>
+        <p>Coordinar inspecciones a domicilio, pasar datos a la flotilla y mantener el calendario actualizado se hace a mano, con riesgo de errores y traslapes.</p>
       </div>
       <div class="diagnostic-card">
         <div class="icon">&#128200;</div>
@@ -630,10 +686,10 @@ footer a:hover { text-decoration: underline; }
 
   <!-- SOLUCIÓN -->
   <section class="section fade-in">
-    <span class="section-label">03 / La solucion</span>
+    <span class="section-label">03 / La soluci&oacute;n</span>
     <h2>Un asistente inteligente que trabaja por ti</h2>
     <p>
-      Proponemos implementar un agente de IA conectado a WhatsApp Business que automatiza todo el flujo de captaci&oacute;n, calificaci&oacute;n y agendamiento de leads. Sin fricci&oacute;n. Sin esperas. Sin errores.
+      Implementamos un agente de IA conectado a WhatsApp Business que automatiza el flujo de captaci&oacute;n, calificaci&oacute;n y agendamiento de leads. Sin fricci&oacute;n. Sin esperas. Sin errores.
     </p>
 
     <div class="flow-list">
@@ -647,7 +703,7 @@ footer a:hover { text-decoration: underline; }
       <div class="flow-step">
         <div class="flow-number">2</div>
         <div class="flow-step-content">
-          <h4>Calificacion automatica</h4>
+          <h4>Calificaci&oacute;n autom&aacute;tica</h4>
           <p>Pregunta tipo de producto (paneles solares o cargadores), c&oacute;digo postal para validar zona de servicio, tipo de veh&iacute;culo si aplica, y nombre del cliente.</p>
         </div>
       </div>
@@ -655,35 +711,21 @@ footer a:hover { text-decoration: underline; }
         <div class="flow-number">3</div>
         <div class="flow-step-content">
           <h4>Filtrado inteligente</h4>
-          <p>Valida c&oacute;digo postal contra zonas de servicio y colonias restringidas. Solo pasan leads calificados.</p>
+          <p>Valida c&oacute;digo postal contra zonas de servicio y colonias restringidas. Solo pasan leads viables.</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-number">4</div>
         <div class="flow-step-content">
           <h4>Agendamiento en Google Calendar</h4>
-          <p>Agenda la inspecci&oacute;n a domicilio autom&aacute;ticamente. El evento incluye todos los datos del lead y la direcci&oacute;n para la flotilla.</p>
+          <p>Agenda la inspecci&oacute;n a domicilio autom&aacute;ticamente. El evento incluye todos los datos del lead y la direcci&oacute;n completa para la flotilla.</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-number">5</div>
         <div class="flow-step-content">
-          <h4>Post-inspeccion: Forms y Sheets</h4>
-          <p>La flotilla completa un Google Forms al terminar. Los datos alimentan Sheets de forma autom&aacute;tica.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-number">6</div>
-        <div class="flow-step-content">
-          <h4>Cotizacion PDF automatica</h4>
-          <p>Con los datos de la inspecci&oacute;n, el sistema genera una propuesta/cotizaci&oacute;n en PDF y la env&iacute;a directo al cliente por WhatsApp.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-number">7</div>
-        <div class="flow-step-content">
-          <h4>CRM actualizado</h4>
-          <p>Folk CRM se actualiza en cada paso via API. Sin duplicados, sin datos perdidos, sin captura manual.</p>
+          <h4>Integraci&oacute;n con tus sistemas</h4>
+          <p>El agente se conecta con tu stack existente: WhatsApp Business, Google Calendar, Google Forms + Sheets, y Folk CRM via API. Todo fluye en un solo ecosistema.</p>
         </div>
       </div>
     </div>
@@ -693,21 +735,21 @@ footer a:hover { text-decoration: underline; }
 
   <!-- ROI -->
   <section class="section fade-in">
-    <span class="section-label">04 / Retorno de inversion</span>
-    <h2>Los numeros hablan solos</h2>
+    <span class="section-label">04 / Retorno de inversi&oacute;n</span>
+    <h2>Los n&uacute;meros hablan solos</h2>
     <div class="roi-box">
-      <h3>Analisis de ahorro mensual</h3>
+      <h3>An&aacute;lisis de ahorro estimado</h3>
       <div class="roi-grid">
         <div class="roi-item">
-          <div class="number">50</div>
-          <div class="desc">conversaciones por semana atendidas manualmente</div>
+          <div class="number">~50</div>
+          <div class="desc">conversaciones semanales atendidas manualmente</div>
         </div>
         <div class="roi-item">
-          <div class="number">20h</div>
-          <div class="desc">semanales dedicadas solo a atender y calificar leads</div>
+          <div class="number">~20h</div>
+          <div class="desc">semanales dedicadas a atender y calificar leads</div>
         </div>
         <div class="roi-item">
-          <div class="number">80h</div>
+          <div class="number">~80h</div>
           <div class="desc">mensuales de trabajo repetitivo que se eliminan</div>
         </div>
         <div class="roi-item">
@@ -716,63 +758,68 @@ footer a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="roi-conclusion">
-        Una persona dedicando 80 horas/mes a atender leads cuesta mas que la implementacion completa.<br>
-        <span style="color: var(--gold);">La inversion se paga sola en el primer mes.</span>
+        Una persona dedicando 80 horas/mes a atender leads cuesta m&aacute;s que la implementaci&oacute;n completa.<br>
+        <span style="color: var(--gold);">La inversi&oacute;n se recupera en el primer mes de operaci&oacute;n.</span>
       </div>
     </div>
   </section>
 
   <hr class="divider">
 
-  <!-- OPCIONES -->
+  <!-- INVERSIÓN -->
   <section class="section fade-in">
-    <span class="section-label">05 / Opciones</span>
-    <h2>Elige como quieres avanzar</h2>
+    <span class="section-label">05 / Inversi&oacute;n</span>
+    <h2>Implementaci&oacute;n completa, done-for-you</h2>
+    <p>Nosotros lo montamos, lo probamos y te lo entregamos funcionando en producci&oacute;n. T&uacute; no tocas nada.</p>
 
-    <div class="pricing-grid">
-      <!-- OPCIÓN A -->
-      <div class="pricing-card featured">
-        <div class="card-label">Opcion A</div>
-        <h3>Implementacion Completa</h3>
-        <div class="card-tag">Llave en mano - Sin dolor de cabeza</div>
-        <div class="price">$5,000 <span style="font-size:1rem;font-weight:400;color:var(--text-muted);">USD</span></div>
-        <div class="price-note">Pago unico</div>
-        <ul class="features">
-          <li><span class="check">&#10003;</span> Setup completo del sistema ag&eacute;ntico en producci&oacute;n</li>
-          <li><span class="check">&#10003;</span> Agente WhatsApp con flujo de calificaci&oacute;n automatizado</li>
-          <li><span class="check">&#10003;</span> Integraci&oacute;n completa: WhatsApp, Calendar, Forms/Sheets, Folk CRM</li>
-          <li><span class="check">&#10003;</span> Generaci&oacute;n autom&aacute;tica de cotizaci&oacute;n PDF</li>
-          <li><span class="check">&#10003;</span> 3 sesiones de capacitaci&oacute;n (1 hora c/u) con tu equipo</li>
-          <li><span class="check">&#10003;</span> Documentaci&oacute;n completa del sistema</li>
-          <li><span class="check">&#10003;</span> <strong>1 mes de soporte post-entrega incluido</strong></li>
-        </ul>
-        <div class="timeline">
-          <span class="icon">&#128640;</span>
-          Entrega en 2-3 semanas. T&uacute; no tocas nada.
+    <div class="pricing-card">
+      <div class="card-label">Implementaci&oacute;n completa</div>
+      <h3>Sistema ag&eacute;ntico para Powernode</h3>
+      <div class="card-tag">Llave en mano. Done-for-you.</div>
+      <div class="price">$5,000 <span style="font-size:1rem;font-weight:400;color:var(--text-muted);">USD</span></div>
+      <div class="price-note">Pago &uacute;nico</div>
+      <ul class="features">
+        <li><span class="check">&#10003;</span> Dise&ntilde;o y desarrollo del agente conversacional para WhatsApp</li>
+        <li><span class="check">&#10003;</span> Flujo de calificaci&oacute;n automatizado con l&oacute;gica de filtrado</li>
+        <li><span class="check">&#10003;</span> Integraci&oacute;n con Google Calendar (agendamiento autom&aacute;tico)</li>
+        <li><span class="check">&#10003;</span> Integraci&oacute;n con Google Forms + Sheets</li>
+        <li><span class="check">&#10003;</span> Integraci&oacute;n con Folk CRM via API</li>
+        <li><span class="check">&#10003;</span> Integraci&oacute;n con correo corporativo dedicado</li>
+        <li><span class="check">&#10003;</span> Documentaci&oacute;n completa del sistema</li>
+        <li><span class="check">&#10003;</span> Pruebas en entorno controlado antes de salir a producci&oacute;n</li>
+      </ul>
+      <div class="timeline">
+        <span class="icon">&#128640;</span>
+        Entrega estimada: 2-3 semanas desde el inicio del proyecto
+      </div>
+    </div>
+
+    <!-- PAGO -->
+    <div class="payment-box">
+      <h4>Modalidad de pago</h4>
+      <div class="payment-grid">
+        <div class="payment-item">
+          <div class="amount">$2,500 USD</div>
+          <div class="label">50% al inicio del proyecto (anticipo)</div>
+        </div>
+        <div class="payment-item">
+          <div class="amount">$2,500 USD</div>
+          <div class="label">50% contra entrega del proyecto final</div>
         </div>
       </div>
+      <div class="payment-note">Empresa: Imperio Digital LLC</div>
+    </div>
 
-      <!-- OPCIÓN B -->
-      <div class="pricing-card">
-        <div class="card-label">Opcion B</div>
-        <h3>Asesoria Guiada</h3>
-        <div class="card-tag">Tu equipo implementa con nuestra guia</div>
-        <div class="price">$3,000 <span style="font-size:1rem;font-weight:400;color:var(--text-muted);">USD</span></div>
-        <div class="price-note">Pago unico</div>
-        <ul class="features">
-          <li><span class="check">&#10003;</span> 4 sesiones de asesor&iacute;a directa (1 hora c/u)</li>
-          <li><span class="check">&#10003;</span> Arquitectura del sistema y playbooks</li>
-          <li><span class="check">&#10003;</span> Templates y documentaci&oacute;n t&eacute;cnica</li>
-          <li><span class="check">&#10003;</span> Soporte por chat durante el proceso</li>
-          <li><span class="dim">&mdash;</span> <span class="dim">Tu equipo ejecuta la implementaci&oacute;n</span></li>
-          <li><span class="dim">&mdash;</span> <span class="dim">Timeline depende de disponibilidad interna</span></li>
-          <li><span class="dim">&mdash;</span> <span class="dim">Sin garant&iacute;a de tiempo de entrega</span></li>
-        </ul>
-        <div class="timeline">
-          <span class="icon">&#128337;</span>
-          Timeline variable. Depende de tu equipo.
-        </div>
-      </div>
+    <!-- FUTURO DESARROLLO -->
+    <div class="future-box">
+      <h4>&#128300; Posible desarrollo futuro (Fase 2)</h4>
+      <p>Estas funcionalidades pueden implementarse como extensi&oacute;n del sistema una vez que el flujo principal est&eacute; operativo:</p>
+      <ul class="future-list">
+        <li><span class="dot">&#9679;</span> Generaci&oacute;n autom&aacute;tica de cotizaci&oacute;n PDF post-inspecci&oacute;n</li>
+        <li><span class="dot">&#9679;</span> Env&iacute;o autom&aacute;tico de cotizaci&oacute;n al cliente por WhatsApp</li>
+        <li><span class="dot">&#9679;</span> Actualizaci&oacute;n avanzada de estados en Folk CRM</li>
+        <li><span class="dot">&#9679;</span> Seguimiento post-cotizaci&oacute;n automatizado</li>
+      </ul>
     </div>
   </section>
 
@@ -780,15 +827,15 @@ footer a:hover { text-decoration: underline; }
 
   <!-- MANTENIMIENTO -->
   <section class="section fade-in">
-    <span class="section-label">06 / Mantenimiento</span>
+    <span class="section-label">06 / Evoluci&oacute;n activa</span>
     <h2>El sistema evoluciona contigo</h2>
     <p>
-      Despues del primer mes incluido en la Opcion A, ofrecemos un plan de mantenimiento mensual para que todo siga funcionando de forma optima y mejore con el tiempo.
+      Desde el primer mes posterior a la entrega del proyecto, ofrecemos un plan de mantenimiento mensual para que todo siga funcionando de forma &oacute;ptima y mejore con el tiempo.
     </p>
     <div class="maintenance-box">
       <h3>Plan de Mantenimiento</h3>
       <div class="price">$500 <span style="font-size:1rem;font-weight:400;color:var(--text-secondary);">USD/mes</span></div>
-      <div class="price-note">Posterior al primer mes incluido en Opcion A</div>
+      <div class="price-note">Inicia desde el primer mes posterior a la entrega del proyecto final</div>
       <div class="maintenance-grid">
         <div class="maintenance-item">
           <span class="check">&#10003;</span>
@@ -800,11 +847,11 @@ footer a:hover { text-decoration: underline; }
         </div>
         <div class="maintenance-item">
           <span class="check">&#10003;</span>
-          <span>Nuevos flujos o cambios al script</span>
+          <span>Cambios al flujo conversacional</span>
         </div>
         <div class="maintenance-item">
           <span class="check">&#10003;</span>
-          <span>Infraestructura incluida (tokens IA, hosting, APIs)</span>
+          <span>Costos de infraestructura incluidos (tokens IA, hosting, APIs)</span>
         </div>
         <div class="maintenance-item">
           <span class="check">&#10003;</span>
@@ -812,7 +859,7 @@ footer a:hover { text-decoration: underline; }
         </div>
         <div class="maintenance-item">
           <span class="check">&#10003;</span>
-          <span>Soporte prioritario por chat</span>
+          <span>Soporte t&eacute;cnico prioritario</span>
         </div>
       </div>
     </div>
@@ -822,49 +869,53 @@ footer a:hover { text-decoration: underline; }
 
   <!-- PRÓXIMOS PASOS -->
   <section class="section fade-in">
-    <span class="section-label">07 / Proximos pasos</span>
+    <span class="section-label">07 / Pr&oacute;ximos pasos</span>
     <h2>Empezar es simple</h2>
 
     <div class="steps-list">
       <div class="step-item">
         <div class="step-num">1</div>
         <div>
-          <h4>Confirmar opcion</h4>
-          <p>Nos indicas que opcion prefieres y coordinamos una breve llamada para alinear detalles.</p>
+          <h4>Confirmaci&oacute;n y anticipo</h4>
+          <p>Confirmas la propuesta y se procesa el anticipo del 50% ($2,500 USD).</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">2</div>
         <div>
-          <h4>Accesos y configuracion</h4>
+          <h4>Accesos y kick-off</h4>
           <p>Nos compartes acceso a WhatsApp Business, Google Calendar, Forms, Sheets y Folk CRM. Nosotros hacemos el resto.</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">3</div>
         <div>
-          <h4>Desarrollo e integracion</h4>
-          <p>Construimos el sistema, lo conectamos con tu stack y lo probamos en un entorno controlado.</p>
+          <h4>Desarrollo, integraci&oacute;n y pruebas</h4>
+          <p>Construimos el sistema, lo conectamos con tu stack y lo probamos en un entorno controlado (2-3 semanas).</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-num">4</div>
         <div>
-          <h4>Capacitacion y lanzamiento</h4>
-          <p>Sesiones con tu equipo para que entiendan como funciona todo. Luego, prendemos el switch.</p>
+          <h4>Entrega y lanzamiento</h4>
+          <p>Te entregamos el sistema funcionando en producci&oacute;n. Pago del saldo restante (50%) y arranque del plan de mantenimiento.</p>
         </div>
       </div>
     </div>
+
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted); text-align: center;">
+      Esta propuesta tiene una validez de 15 d&iacute;as calendario a partir de la fecha de emisi&oacute;n.
+    </p>
   </section>
 
   <hr class="divider">
 
   <!-- FOOTER -->
   <footer class="fade-in">
-    <div class="brand">Imperio Digital</div>
-    <p>Benjamin Cordero / <a href="mailto:benja@imperiodigital.ai">benja@imperiodigital.ai</a></p>
+    <div class="brand">Imperio Digital LLC</div>
+    <p>Benjam&iacute;n Cordero / <a href="mailto:benja@imperiodigital.ai">benja@imperiodigital.ai</a></p>
     <p><a href="https://imperiodigital.ai" target="_blank">imperiodigital.ai</a></p>
-    <div class="footer-line">Propuesta confidencial preparada para Powernode. Marzo 2026.</div>
+    <div class="footer-line">Propuesta confidencial preparada para Powernode. Ref: ID-2026-PW-001. Marzo 2026.</div>
   </footer>
 
 </div>
